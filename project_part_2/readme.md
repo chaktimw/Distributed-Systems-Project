@@ -21,10 +21,12 @@
 -	Creates a container for each broker, publisher, subscriber, and the zookeeper
 -	Assigns the appropriate dockerfile for each subscriber and publisher
 -	Connects all the container onto the same docker network
-##	Dockerfiles can be found under dockerfiles in the project directory
-##	Html files are under templates and JS code is under static
-##	Partition management is handled by each broker node and the zookeeper
-Startup Instructions:
+## Note:
+-	Dockerfiles can be found under dockerfiles in the project directory
+-	Html files are under templates and JS code is under static
+-	Partition management is handled by each broker node and the zookeeper
+-	
+# Startup Instructions:
 1)	Run Docker
 2)	Go to the project file directory in the CMD
 3)	Run command “docker-compose up --build”
