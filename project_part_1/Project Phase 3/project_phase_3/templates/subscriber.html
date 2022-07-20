@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>CSE486 App</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css"/>
+</head>
+<body>
+<h1>Subscriber's Page</h1>
+
+<div id ="login_form">
+    <h1><u>Login or create a new ID before using any of the following subscriber functions</u></h1>
+<h2>Simply enter your ID here and click login! Non-number values are ignored.</h2>
+<label for="input">ID: </label>
+<input id="login_ID" type="text" name="id">
+<button onclick="login()">login</button>
+    <div id = "login_response"></div>
+
+<h2>Or create a new ID here and then login above! Only numbers are accepted.</h2>
+<label for="input">ID: </label>
+<input id="create_ID" type="text" name="id">
+<button onclick="create()">create</button>
+    <div id = "create_response"></div>
+</div>
+
+<br><br>
+<h2><u>Currently advertised price topics:</u></h2>
+<div id ="data"></div>
+
+<h2><u>Subscribe to currently advertised topics here! </u></h2>
+<h3>Example: Inputting 5 means only games with a price below $5 will be shown! <br>
+    *Note: Ignores topics not currently shown in advertised topics</h3>
+
+<label for="input">Input price: </label>
+<input id="price" type="text" name="Price">
+<button onclick="subscribe()">Subscribe!</button>
+
+<br><br>
+<h2><u>Unsubscribe to currently advertised topics here! </u></h2>
+<h3>Example: Inputting 5 means removing $5 games from subscription <br>
+    *Note: Ignores topics not currently shown in subscribed topics</h3>
+
+<label for="input">Input price: </label>
+<input id="price2" type="text" name="Price">
+<button onclick="unsubscribe()">Unsubscribe!</button>
+
+<h2><u>Currently subscribed topic prices:</u></h2>
+<div id ="data2"></div>
+
+<br><br>
+<h2><u>Newsfeed (Displays new games that fit under your subscriptions:</u></h2>
+<div id ="data3"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+<script>var socket = io("http://localhost:{{ connect }}");</script>
+<script src="/static/sub_func.js"></script>
+</body>
+</html>

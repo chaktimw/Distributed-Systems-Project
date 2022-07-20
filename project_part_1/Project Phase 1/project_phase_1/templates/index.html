@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>CSE486 App</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css"/>
+</head>
+<body>
+<h1>Chaktim Wong's CSE486 App</h1>
+
+<h2>Add a comment</h2>
+<form action="/comment" id="comment-form" method="post" enctype="multipart/form-data">
+    <label for="text-form-name">Name: </label>
+    <input id="text-form-name" type="text" name="name"><br/>
+    <label for="form-comment">Comment: </label>
+    <input id="form-comment" type="text" name="comment">
+    <input type="submit" value="Submit">
+</form>
+
+<h1>Comments</h1>
+{{ Comments | safe}}
+
+</body>
+</html>

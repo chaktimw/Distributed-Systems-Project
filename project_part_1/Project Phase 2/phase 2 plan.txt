@@ -1,0 +1,63 @@
+Requirements
+- Subscriber UI
+	- UI to subscribe/unsubscribe
+	- UI to view subscriptions/feed
+
+- Publishers functionality
+	- Database tools to advertise/unadvertise
+	- Database tools to "update" (publish) database
+
+- API Access
+	- Filter data by groups
+
+- Database management
+	- List of subscribers and subscribed groups
+	- List of publishers and advertised groups
+	- List of groups
+		- each group contains published data
+	- List of unfiltered messages
+
+- Server (central broker)
+	- Create paths for subscribers and publishers
+	- Get data from API
+	- Setup polling function to receive updates from API
+	- Socket Connection to notify subscribers
+
+Goals
+1) API
+[Done]	- Choose groups that subscribers can sub to: games(<$5, <$10, <$20)
+		- "https://www.cheapshark.com/api/1.0/deals?upperPrice=5"
+		- "https://www.cheapshark.com/api/1.0/deals?upperPrice=10"
+		- "https://www.cheapshark.com/api/1.0/deals?upperPrice=20"
+	- Filter API data functions
+2) Database
+	- Setup database format
+		- Collection of Publishers
+			- Publisher name [string]
+			- advertised topics [list of strings]
+		- Collection of Subscribers
+			- subscriber id [int]
+			- subscribed Topics [list of strings]
+		- Collection of Topics
+			- topic [string]
+			- published data [list of games]
+		- Collection of Unfiltered Messages
+			- publisher name [string]
+			- unfiltered messages [json string]
+
+	- Database tools (Publisher)
+		- advertise/unadvertise
+		- Database tools to "update" (publish) database
+		- notify()?
+
+	- Test database
+3) Subscriber UI
+	- Create ui in html for subscribers
+		- subscribe/unsubscribe
+		- view subscriptions
+	- Create javascript to interact with server
+		- post subscribe(), unsubscribe()
+		- get subscription data (notify?)
+	- Setup socket connection
+		- notify (poll for api updates)
+	

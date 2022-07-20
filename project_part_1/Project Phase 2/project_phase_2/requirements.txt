@@ -1,0 +1,4 @@
+flask
+pymongo[tls,srv]
+requests~=2.26.0
+flask_socketio

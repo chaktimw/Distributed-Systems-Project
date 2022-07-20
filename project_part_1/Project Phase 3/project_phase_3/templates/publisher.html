@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>CSE486 App</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css"/>
+</head>
+<body>
+<h1>Publisher's Page</h1>
+
+<div id ="login_form">
+    <h1><u>Login or create a new ID before using any of the following publisher functions</u></h1>
+    <h2>Simply enter your ID here and click login! Non-number values are ignored.</h2>
+    <label for="input">ID: </label>
+    <input id="login_ID" type="text" name="id">
+    <button onclick="login()">login</button>
+    <div id = "login_response"></div>
+
+    <h2>Or create a new ID here and then login above! Only numbers are accepted.</h2>
+    <label for="input">ID: </label>
+    <input id="create_ID" type="text" name="id">
+    <button onclick="create()">create</button>
+    <div id = "create_response"></div>
+</div>
+<br><br>
+
+<h2><u>Advertise price value topic of published games here! </u></h2>
+<h3>Example: Inputting 5 means only games with a price below $5 will be shown as a topic! <br>
+    *Note: Ignores non-integers</h3>
+
+<label for="input">Input price: </label>
+<input id="price" type="text" name="Price">
+<button onclick="advertise()">Advertise</button>
+
+<h2><u>Deadvertise price value topic of published games here! </u></h2>
+<h3>Example: Inputting 5 means removing $5 as a topic if it is currently being advertised <br>
+    *Note: Ignores non-integers</h3>
+
+<label for="input">Input price: </label>
+<input id="price2" type="text" name="Price">
+<button onclick="deadvertise()">Deadvertise</button>
+
+<br><br>
+<h2><u>Currently advertised topic prices: </u></h2>
+<div id ="data"></div>
+
+<br><br>
+<h2><u>Publish here!</u></h2>
+<h3>Click on publish to automatically release a new game to the server. <br>
+    The server will go through the advertised filters and notify all of those who are subscribed to the filter! </h3>
+<button onclick="publish()">Publish!</button>
+
+<br><br>
+<h2><u>Last Published Game: </u></h2>
+<div id ="data2"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+<script src="/static/pub_func.js"></script>
+</body>
+</html>

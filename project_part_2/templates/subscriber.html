@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>CSE486 App</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css"/>
+</head>
+<body>
+<h1>Subscriber's Page</h1>
+
+<h2><u>Currently advertised price topics:</u></h2>
+<div id ="data"></div>
+
+<h2><u>Subscribe to currently advertised topics here! </u></h2>
+<h3>Example: Inputting 10 means only games with a price between $5 and $10 will be shown! <br>
+    *Note: Ignores topics not currently shown in advertised topics</h3>
+
+<label for="input">Input price: </label>
+<input id="price" type="text" name="Price">
+<button onclick="subscribe()">Subscribe!</button>
+
+<br><br>
+<h2><u>Unsubscribe to currently advertised topics here! </u></h2>
+<h3>Example: Inputting 5 means removing $0-$5 games from subscription <br>
+    *Note: Ignores topics not currently shown in subscribed topics <br>
+    * Unsubscribed games will remain in newsfeed, but new games will not be added</h3>
+
+<label for="input">Input price: </label>
+<input id="price2" type="text" name="Price">
+<button onclick="unsubscribe()">Unsubscribe!</button>
+
+<h2><u>Currently subscribed topic prices:</u></h2>
+<div id ="data2"></div>
+
+<br><br>
+<h2><u>Newsfeed (Games that fit your subscriptions are added here):</u></h2>
+<div id ="data3"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+<script>var socket = io("http://localhost:{{ connect }}");</script>
+<script src="/static/sub_func.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+version: '3.3'
+services:
+  mongo:
+    image: mongo:4.2.5
+
+  broker1:
+    build:
+      context: .
+      dockerfile: dockerfiles/broker1/Dockerfile
+    environment:
+      WAIT_HOSTS: mongo:27017
+      PORT: 8001
+    ports:
+      - '8001:8001'
+
+  broker2:
+    build:
+      context: .
+      dockerfile: dockerfiles/broker2/Dockerfile
+    environment:
+      WAIT_HOSTS: mongo:27017
+      PORT: 8002
+    ports:
+      - '8002:8002'
+
+  broker3:
+    build:
+      context: .
+      dockerfile: dockerfiles/broker3/Dockerfile
+    environment:
+      WAIT_HOSTS: mongo:27017
+      PORT: 8003
+    ports:
+      - '8003:8003'
+
+  subscriber1:
+    build:
+      context: .
+      dockerfile: dockerfiles/subscriber1/Dockerfile
+    environment:
+      WAIT_HOSTS: mongo:27017
+      PORT: 8201
+    ports:
+      - '8201:8201'
+
+  subscriber2:
+    build:
+      context: .
+      dockerfile: dockerfiles/subscriber1/Dockerfile
+    environment:
+      WAIT_HOSTS: mongo:27017
+      PORT: 8202
+    ports:
+      - '8202:8202'
+
+  subscriber3:
+    build:
+      context: .
+      dockerfile: dockerfiles/subscriber1/Dockerfile
+    environment:
+      WAIT_HOSTS: mongo:27017
+      PORT: 8203
+    ports:
+      - '8203:8203'
+
+  publisher1:
+    build:
+      context: .
+      dockerfile: dockerfiles/publisher1/Dockerfile
+    environment:
+      WAIT_HOSTS: mongo:27017
+      PORT: 8101
+    ports:
+      - '8101:8101'

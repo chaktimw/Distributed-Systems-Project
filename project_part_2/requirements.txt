@@ -1,0 +1,4 @@
+flask~=2.0.2
+requests~=2.26.0
+flask_socketio
+kafka-python
